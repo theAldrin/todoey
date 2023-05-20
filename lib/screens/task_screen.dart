@@ -12,7 +12,6 @@ class TasksScreen extends StatefulWidget {
 class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
-    bool? isChecked = false;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurple,
