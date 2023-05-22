@@ -33,7 +33,8 @@ class AddTaskScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Provider.of<TaskData>(context).addTask(newTaskTitle);
+                Provider.of<TaskData>(context, listen: false)
+                    .addTask(newTaskTitle);
                 Navigator.pop(context);
               },
               child: Container(
