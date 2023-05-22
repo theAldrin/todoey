@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  final Function addTask;
+  AddTaskScreen({required this.addTask});
+  late String newTaskTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +24,16 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               textAlign: TextAlign.center,
               cursorColor: Colors.deepPurple,
+              onChanged: (newvalue) {
+                newTaskTitle = newvalue;
+              },
             ),
             SizedBox(
               height: 30,
             ),
             GestureDetector(
               onTap: () {
-                //add the task to firestore
+                addTask(newTaskTitle);
               },
               child: Container(
                 width: double.infinity,
