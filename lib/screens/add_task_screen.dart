@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function addTask;
-  AddTaskScreen({required this.addTask});
   late String newTaskTitle;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,8 @@ class AddTaskScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                addTask(newTaskTitle);
+                Provider.of<TaskData>(context).addTask(newTaskTitle);
+                Navigator.pop(context);
               },
               child: Container(
                 width: double.infinity,
